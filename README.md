@@ -1,12 +1,12 @@
-# StyleMirror (iPhone + Computer App)
+# GhostPen (Any-Style Writing Website)
 
-StyleMirror is a browser-based app that runs on:
+GhostPen is a browser-based website that helps you generate high-fidelity prompts to mimic almost any writing style.
+
+It runs on:
 - iPhones/iPads (iOS Safari)
 - Mac/Windows/Linux computers (Chrome, Safari, Firefox, Edge)
 
-It helps you create style-matching prompts from writing samples.
-
-## Run the app
+## Run the website
 
 From this folder:
 
@@ -22,15 +22,16 @@ Then open:
 
 1. Paste style samples.
 2. Enter what you want written.
-3. Tap **Generate Style Prompt**.
-4. Copy the generated prompt into your preferred LLM.
+3. Set style strictness.
+4. Tap **Generate Style-Clone Prompt**.
+5. Copy the prompt into your preferred LLM.
 
 ## Files
 
-- `index.html`: app UI
+- `index.html`: website UI
 - `styles.css`: responsive styling for phones and desktop
 - `app.js`: style analysis + prompt generation logic
 
 ## Note
 
-No system can guarantee perfectly identical writing every time. This app maximizes similarity by extracting measurable style signals and turning them into constraints.
+No system can guarantee perfectly identical writing every time. GhostPen pushes similarity as far as possible while avoiding direct plagiarism.
