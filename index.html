@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleMirror App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>StyleMirror</h1>
+    <p class="subtitle">A browser app that helps generate text in a target writing style on iPhone/iPad and computers.</p>
+
+    <section class="card">
+      <label for="samples">Style samples (paste 1+ paragraphs):</label>
+      <textarea id="samples" rows="8" placeholder="Paste writing samples here..."></textarea>
+
+      <label for="task">What should be written?</label>
+      <textarea id="task" rows="3" placeholder="Example: Write a launch email for a new note-taking app."></textarea>
+
+      <button id="analyzeBtn">Generate Style Prompt</button>
+    </section>
+
+    <section class="card">
+      <h2>Style Profile</h2>
+      <pre id="profileOut">No profile yet.</pre>
+    </section>
+
+    <section class="card">
+      <h2>LLM Prompt</h2>
+      <textarea id="promptOut" rows="12" readonly></textarea>
+      <button id="copyBtn">Copy Prompt</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
