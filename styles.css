@@ -40,3 +40,19 @@ button {
 }
 .subtitle { color: var(--muted); }
 pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.helper {
+  color: var(--muted);
+  margin: 0.4rem 0 0;
+  font-size: 0.92rem;
+}
+
+.footnote {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 0.5rem;
+}

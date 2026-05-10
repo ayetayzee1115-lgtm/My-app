@@ -3,34 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StyleMirror App</title>
+  <title>GhostPen — Any-Style Writing Website</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="container">
-    <h1>StyleMirror</h1>
-    <p class="subtitle">A browser app that helps generate text in a target writing style on iPhone/iPad and computers.</p>
+    <h1>GhostPen</h1>
+    <p class="subtitle">Create high-fidelity style-clone prompts for any writing style in seconds.</p>
 
     <section class="card">
-      <label for="samples">Style samples (paste 1+ paragraphs):</label>
+      <label for="samples">Style samples (paste at least 2–3 paragraphs):</label>
       <textarea id="samples" rows="8" placeholder="Paste writing samples here..."></textarea>
 
       <label for="task">What should be written?</label>
-      <textarea id="task" rows="3" placeholder="Example: Write a launch email for a new note-taking app."></textarea>
+      <textarea id="task" rows="3" placeholder="Example: Write a newsletter intro announcing a product launch."></textarea>
 
-      <button id="analyzeBtn">Generate Style Prompt</button>
+      <label for="strictness">Style strictness</label>
+      <input id="strictness" type="range" min="1" max="10" value="9" />
+      <p class="helper">Higher values force tighter style matching.</p>
+
+      <button id="analyzeBtn">Generate Style-Clone Prompt</button>
     </section>
 
     <section class="card">
-      <h2>Style Profile</h2>
+      <h2>Style DNA Profile</h2>
       <pre id="profileOut">No profile yet.</pre>
     </section>
 
     <section class="card">
-      <h2>LLM Prompt</h2>
-      <textarea id="promptOut" rows="12" readonly></textarea>
+      <h2>Copy-Ready Prompt</h2>
+      <textarea id="promptOut" rows="13" readonly></textarea>
       <button id="copyBtn">Copy Prompt</button>
     </section>
+
+    <p class="footnote">Note: No system can guarantee perfectly identical output every time, but this app pushes style similarity as far as possible without plagiarism.</p>
   </main>
 
   <script src="app.js"></script>
