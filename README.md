@@ -1,6 +1,6 @@
-# GhostPen (Any-Style Writing Website)
+# GhostPen (Style Learning Writing App)
 
-GhostPen is a browser-based website that helps you generate high-fidelity prompts to mimic almost any writing style.
+GhostPen is a browser-based app that learns writing patterns from user-provided samples and generates prompts for creating original new chapters in a similar style.
 
 It runs on:
 - iPhones/iPads (iOS Safari)
@@ -20,10 +20,10 @@ Then open:
 
 ## How it works
 
-1. Paste style samples.
-2. Enter what you want written.
-3. Set style strictness.
-4. Tap **Generate Style-Clone Prompt**.
+1. Paste authorized style samples.
+2. Enter what you want written (for example, a new chapter).
+3. Set style alignment strength.
+4. Tap **Generate Chapter Prompt**.
 5. Copy the prompt into your preferred LLM.
 
 ## Files
@@ -31,7 +31,10 @@ Then open:
 - `index.html`: website UI
 - `styles.css`: responsive styling for phones and desktop
 - `app.js`: style analysis + prompt generation logic
+- `style_writer.py`: CLI utility for profile + prompt generation
 
-## Note
+## Responsible use
 
-No system can guarantee perfectly identical writing every time. GhostPen pushes similarity as far as possible while avoiding direct plagiarism.
+- Use only samples that you own or are authorized to reuse.
+- Keep outputs original and avoid impersonating real people.
+- The app is designed for stylistic transfer, not plagiarism.
