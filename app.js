@@ -55,10 +55,10 @@ function buildProfile(samples) {
     avg_sentence_length: avg(sentenceLengths, 12),
     avg_paragraph_sentences: avg(paraCounts, 3),
     punctuation_rate: {
-      comma: samples.split(",").length / Math.max(1, words.length),
-      semicolon: samples.split(";").length / Math.max(1, words.length),
-      dash: samples.split("—").length / Math.max(1, words.length),
-      colon: samples.split(":").length / Math.max(1, words.length),
+      comma: (samples.match(/,/g) || []).length / Math.max(1, words.length),
+      semicolon: (samples.match(/;/g) || []).length / Math.max(1, words.length),
+      dash: (samples.match(/—/g) || []).length / Math.max(1, words.length),
+      colon: (samples.match(/:/g) || []).length / Math.max(1, words.length),
     },
     top_words: topWords,
     rhetorical_patterns: detectPatterns(samples),
@@ -67,12 +67,11 @@ function buildProfile(samples) {
 }
 
 function buildPrompt(profile, task, strictness) {
-  return `You are a writing assistant. Produce text for this task:\n${task}\n\nMatch this style profile closely:\n- Tone: ${profile.tone}\n- Avg sentence length: ${profile.avg_sentence_length} words\n- Avg sentences per paragraph: ${profile.avg_paragraph_sentences}\n- Common words to reuse organically: ${profile.top_words.slice(0, 8).join(", ")}\n- Rhetorical patterns: ${profile.rhetorical_patterns.join(", ")}\n- Punctuation tendencies (relative frequency): ${JSON.stringify(profile.punctuation_rate)}\n\nRules:\n1) Keep semantic accuracy for the requested task.\n2) Preserve style signals without copying phrases verbatim.\n3) Return only the final text.
-4) Style strictness level: ${strictness}/10 (higher means stronger mimicry).`;
+  return `You are a writing assistant. Produce original text for this task:\n${task}\n\nMatch this style profile closely:\n- Tone: ${profile.tone}\n- Avg sentence length: ${profile.avg_sentence_length} words\n- Avg sentences per paragraph: ${profile.avg_paragraph_sentences}\n- Common words to reuse organically: ${profile.top_words.slice(0, 8).join(", ")}\n- Rhetorical patterns: ${profile.rhetorical_patterns.join(", ")}\n- Punctuation tendencies (relative frequency): ${JSON.stringify(profile.punctuation_rate)}\n\nRules:\n1) Keep semantic accuracy for the requested task.\n2) Preserve style signals without copying phrases verbatim.\n3) Do not imitate real living authors or private individuals without consent; use only authorized samples.\n4) Keep output original and avoid references that imply identity with the source author.\n5) Return only the final text.\n6) Style strictness level: ${strictness}/10 (higher means stronger stylistic alignment).`;
 }
 
 document.getElementById("analyzeBtn").addEventListener("click", () => {
-  const strictness = Number(document.getElementById("strictness").value || 9);
+  const strictness = Number(document.getElementById("strictness").value || 8);
   const samples = document.getElementById("samples").value.trim();
   const task = document.getElementById("task").value.trim();
   if (!samples || !task) return alert("Please add both style samples and a task.");
